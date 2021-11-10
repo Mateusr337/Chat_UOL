@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+  }
+
+body, html{
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+    position: relative;
+}
+
+.iniciar{
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.iniciar img{
+    width: 130px;
+    padding-top: 72px;
+}
+
+.iniciar input{
+    width: 261px;
+    height: 54px;
+    font-size: 18px;
+
+    margin-top: 94px;
+
+    color: #AEAEAE;
+    border-radius: 4px;
+    border: 1px solid #D7D7D7;
+    text-align: center;
+}
+
+.botao_iniciar{
+    width: 109px;
+    height: 45px;
+    margin-top: 15px;
+    color: #696969;
+    background-color: #e7e7e7;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+header img{
+    width: 75px;
+    height: 53px;
+}
+
+header ion-icon {
+    width: 42px;
+    height: 31px;
+}
+
+.enviar{
+    width: 100%;
+    height: 80px;
+    padding-left: 27px;
+    padding-right: 27px;
+    gap: 27px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.enviar ion-icon{
+    width: 26px;
+    height: 26px;
+}
+
+.enviar input{
+    width: 100%;
+    height: 95%;
+
+    border: none;
+}
+
+.enviar input::placeholder{
+    color: black;
+    font-style: italic;
+}
+
+
+
+aside{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.opaca{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.barraLateral{
+    min-width: 259px;
+    height: 100%;
+
+    font-size: 16px;
+    line-height: 18,75px;
+
+    background-color: #ffffff;
+}
+
+.barraLateral .titulo{
+    padding: 25px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.usuarios{
+    height: 36px;
+
+    padding-left: 17.8px;
+    gap: 7.5px;
+
+    display: flex;
+}
+
+.sumir{
+    display: none;
+}

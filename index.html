@@ -17,10 +17,11 @@
 
 <body>
 
-    <article class="iniciar sumir">
+    <article class="iniciar">
         <img src="batepapo.jpg" alt="">
         <input type="text" placeholder="Digite seu nome">
-        <div class="botao_iniciar">Entar</div>
+        <button type="button" class="botao_iniciar" onclick="verificarNomeEntrada()">Entrar</button>
+        <div class="aviso"></div>
     </article>
 
     <header>
@@ -28,13 +29,11 @@
         <ion-icon name="people"></ion-icon>
     </header>
 
-    <main>
-        <section class="mensagem"></section>
-    </main>
+    <main></main>
 
     <div class="enviar">
         <input type="text" placeholder="Escreva aqui...">
-        <ion-icon name="paper-plane-outline"></ion-icon>
+        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
     </div>
 
     <aside class="sumir">
@@ -74,8 +73,9 @@
         </div>
     </aside>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="auto.js"></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 
 </html>

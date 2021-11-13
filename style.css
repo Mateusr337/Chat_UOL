@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 .negrito{
     font-weight: bold;
 }
@@ -29,7 +25,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .iniciar img{
@@ -185,13 +181,33 @@ aside{
 }
 
 .barraLateral{
+    background-color: #ffffff;
     min-width: 259px;
     height: 100%;
 
     font-size: 16px;
     line-height: 18,75px;
+    position: relative;
+}
 
-    background-color: #ffffff;
+.check ion-icon{
+    color: green;
+    display: none;
+}
+
+.selecionadoUsuario ion-icon{
+    display: block;
+}
+.selecionadoTipoMensagem ion-icon{
+    display: block;
+}
+
+.membros{
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    overflow-y: scroll;
 }
 
 .barraLateral .titulo{
@@ -201,11 +217,12 @@ aside{
     text-align: center;
 }
 
-.usuarios{
-    height: 36px;
 
+
+.pessoa, .publico, .reservadamente{
+    height: 25px;
     padding-left: 17.8px;
-    gap: 7.5px;
+    gap: 8px;
 
     display: flex;
 }

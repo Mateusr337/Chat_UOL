@@ -22,51 +22,68 @@
         <input type="text" placeholder="Digite seu nome">
         <button type="button" class="botao_iniciar" onclick="verificarNomeEntrada()">Entrar</button>
         <div class="aviso"></div>
+        <div class="carregandoimg sumir">
+            <img src="/load.gif" alt="">
+        </div>
     </article>
 
     <header>
         <img src="batepapo.jpg" alt="">
-        <ion-icon name="people"></ion-icon>
+        <div class="img" onclick="aparecerLateral()">
+            <ion-icon name="people"></ion-icon>
+        </div>
     </header>
 
     <main></main>
 
     <div class="enviar">
-        <input type="text" placeholder="Escreva aqui...">
-        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
+        <div>
+            <input type="text" placeholder="Escreva aqui...">
+            <div class="mensagemEnviar"></div>
+        </div>
+        <ion-icon data-identifier="send-message" name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
     </div>
 
     <aside class="sumir">
-        <div class="opaca"></div>
+        <div class="opaca" onclick="aparecerLateral()"></div>
         <div class="barraLateral">
-            <div class="menbros">
+            <div class="membros">
 
                 <div class="titulo">
                     Escolha um contato <br> para enviar menssagem:
                 </div>
 
                 <div class="usuarios">
-                    <ion-icon name="people"></ion-icon>
-                    Todos
-                </div>
 
-                <div class="usuarios">
-                    <ion-icon name="person-circle"></ion-icon>
-                    Mateus
+                    <div class="pessoa selecionadoUsuario" onclick="selecionarUsuario()">
+                        <ion-icon name="people"></ion-icon>
+                        <span>Todos</span>
+                        <div class="check">
+                            <ion-icon name="checkmark"></ion-icon>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="titulo">
                     Escolha a visibilidade:
                 </div>
 
-                <div class="usuarios">
+                <div class="publico selecionadoTipoMensagem data-identifier=" visibility""
+                    onclick="selecionarTipo(this)">
                     <ion-icon name="lock-open"></ion-icon>
                     Público
+                    <div class="check">
+                        <ion-icon name="checkmark"></ion-icon>
+                    </div>
                 </div>
 
-                <div class="usuarios">
+                <div data-identifier="visibility" class="reservadamente" onclick="selecionarTipo(this)">
                     <ion-icon name="lock-closed"></ion-icon>
                     Reservadamente
+                    <div class="check">
+                        <ion-icon name="checkmark"></ion-icon>
+                    </div>
                 </div>
 
             </div>

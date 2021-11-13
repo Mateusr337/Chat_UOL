@@ -6,7 +6,7 @@ let seg = ("0" + data.getSeconds()).slice(-2);
 let legendaMensagem = document.querySelector('.mensagemEnviar');
 let nome;
 const main = document.querySelector('main');
-let time = hora - 11 + ":" + min + ":" + seg;
+let time = hora + ":" + min + ":" + seg;
 
 
 function verificarNomeEntrada() {
@@ -40,10 +40,11 @@ function ErroCarregarMensagem(resposta) {
     window.location.reload();
 }
 
+let ultimaMensagem;
 function carregarMensagem(resposta) {
-    //if (online && document.querySelector('section:last-child').time.innerHTML === resposta.data[resposta.data.length - 1].time) {
-    //    return;
-    //}
+    if (online && ultimaMensagem.time === resposta.data[99].time) {
+        return;
+    }
     document.querySelector('article').style.display = "none";
     main.innerHTML = "";
 
@@ -58,6 +59,7 @@ function carregarMensagem(resposta) {
     }
     let mensagens = document.querySelector('section:last-child');
     mensagens.scrollIntoView();
+    ultimaMensagem = resposta.data[99];
 
     if (!online) {
         setInterval(chamarMensagens, 3000);

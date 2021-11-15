@@ -19,8 +19,8 @@
 
     <article class="iniciar">
         <img src="batepapo.jpg" alt="">
-        <input type="text" placeholder="Digite seu nome">
-        <button type="button" class="botao_iniciar" onclick="verificarNomeEntrada()">Entrar</button>
+        <input class="inputTexto" type="text" placeholder="Digite seu nome">
+        <input type="submit" value="Entrar" class="botao_iniciar" onclick="verificarNomeEntrada()"></input>
         <div class="aviso"></div>
         <div class="carregandoimg sumir">
             <img src="/load.gif" alt="">
@@ -41,7 +41,8 @@
             <input type="text" placeholder="Escreva aqui...">
             <div class="mensagemEnviar"></div>
         </div>
-        <ion-icon data-identifier="send-message" name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
+        <ion-icon class="enviarmensagemchat" data-identifier="send-message" name="paper-plane-outline"
+            onclick="enviarMensagem()"></ion-icon>
     </div>
 
     <aside class="sumir">

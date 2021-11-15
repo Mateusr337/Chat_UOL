@@ -4,13 +4,13 @@ let min = ("0" + data.getMinutes()).slice(-2);
 let seg = ("0" + data.getSeconds()).slice(-2);
 
 let legendaMensagem = document.querySelector('.mensagemEnviar');
-let nome;
+let nome = "";
 const main = document.querySelector('main');
 let time = hora + ":" + min + ":" + seg;
 
 
 function verificarNomeEntrada() {
-    nome = document.querySelector('.iniciar input');
+    nome = document.querySelector('.iniciar .inputTexto');
     const promessa = axios.post('https://mock-api.driven.com.br/api/v4/uol/participants', { name: nome.value, time, type: "status" });
 
     const img = document.querySelector('.iniciar .carregandoimg');
@@ -42,6 +42,7 @@ function ErroCarregarMensagem(resposta) {
 
 let ultimaMensagem;
 function carregarMensagem(resposta) {
+    console.log(resposta);
     if (online && ultimaMensagem.time === resposta.data[99].time) {
         return;
     }
@@ -53,7 +54,7 @@ function carregarMensagem(resposta) {
             main.innerHTML += (`<section data-identifier="message" class="entrouSaiu"><span class="time">${resposta.data[i].time}</span> <span class="from">${resposta.data[i].from}</span> <span class="text">${resposta.data[i].text}</span> </section>`)
         } else if (resposta.data[i].type === "message") {
             main.innerHTML += (`<section data-identifier="message" class="mensagem"><span class="time">${resposta.data[i].time}</span> <span class="from">${resposta.data[i].from}</span> para <span class="to">${resposta.data[i].to}:</span> <span class="text">${resposta.data[i].text}</span> </section>`)
-        } else if (resposta.data[i].type === "private_message" && resposta.data[i].to === nome) {
+        } else if (resposta.data[i].type === "private_message" && (resposta.data[i].to === nome.value || resposta.data[i].from === nome.value)) {
             main.innerHTML += (`<section data-identifier="message" class="reservado"><span class="time">${resposta.data[i].time}</span> <span class="from">${resposta.data[i].from}</span> para <span class="to">${resposta.data[i].to}:</span> <span class="text">${resposta.data[i].text}</span> </section>`)
         }
     }
@@ -86,7 +87,7 @@ function enviarMensagem() {
         promessa.catch(ErroCarregarMensagem);
     }
     else if (tipoMensagem.classList.contains('reservadamente') && usuario !== null) {
-        main.innerHTML += `<section data-identifier="message" class="reservadamente"><span class="time">${time}</span> <span class="from">${nome.value}</span> para <span class="to">${usuario.innerHTML}</span> <span class="text">${texto.value}</span> </section>`;
+        main.innerHTML += `<section data-identifier="message" class="reservado"><span class="time">${time}</span> <span class="from">${nome.value}</span> para <span class="to">${usuario.innerHTML}</span> <span class="text">${texto.value}</span> </section>`;
         const promessa = axios.post('https://mock-api.driven.com.br/api/v4/uol/messages', { from: nome.value, to: usuario.innerHTML, text: texto.value, type: "private_message" });
         texto.value = "";
         promessa.catch(ErroCarregarMensagem);
@@ -150,3 +151,13 @@ function verificarTipoMensagem() {
         legendaMensagem.innerHTML = "";
     }
 }
+
+document.addEventListener('keypress', function (e) {
+    if (e.key === "Enter" && online === false) {
+        const botao = document.querySelector('.botao_iniciar');
+        botao.click();
+    } else if (e.key === "Enter" && online === true) {
+        const botao = document.querySelector('.enviarmensagemchat');
+        botao.click();
+    }
+});
